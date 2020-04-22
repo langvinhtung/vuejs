@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
     <b-form @submit.prevent.stop="onSubmit" action>
       <label for="text-password">User Name</label>
       <b-input
@@ -23,36 +24,37 @@
 </template>
 
 <script>
+import axios from "axios";
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
   data() {
     return {
       user: {
-        userName: "",
-        password: ""
+        userName: '',
+        password: '',
       },
       userLogin: {
-        userName: "lvtung1",
-        password: "12345678a@"
-      }
+        userName: '1',
+        password: '1',
+      },
     };
   },
   methods: {
     onSubmit(evt) {
-      if (
-        this.user.userName == this.userLogin.userName &&
-        this.user.password == this.userLogin.password
+      if ( 
+        this.user.userName === this.userLogin.userName &&
+        this.user.password === this.userLogin.password
       ) {
         this.$router.push({
-          path: "/about",
-          name: "About"
+          path: '/list',
+          name: 'List',
         });
       } else {
-        alert("Loi")
+        alert('Loi');
       }
-    }
-  }
+    },
+  },
 };
 </script>
